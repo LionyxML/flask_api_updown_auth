@@ -5,18 +5,15 @@ from logging.handlers import RotatingFileHandler
 from time import strftime
 import traceback
 from flask_sqlalchemy import SQLAlchemy
-
+from io import StringIO
 
 
 ##### Setup de diretórios e variáveis globias
 DB = "sqlite:///db/db.sqlite"
-UPLOAD_DIR = "apiupdown/uplodad"
 LOG_ARQUIVO = "apiupdown/log/app.log"
 LOG_TAMANHO = 100000
 LOG_BACKUP = 3
 
-if not os.path.exists(UPLOAD_DIR):
-    os.makedirs(UPLOAD_DIR)
 
 ##### Setup do Logger
 logger = logging.getLogger('tdm')
@@ -27,6 +24,7 @@ logger.addHandler(handler)
 ##### Setup da aplicação
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = DB
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
@@ -48,35 +46,6 @@ class Entrada(db.Model):
 def msg_teste():
     return "Servindo API..."
 
-@app.route("/arquivos")
-def lista_arquivos():
-    """Endpoint para listar os arquivos no servidor"""
-    arquivos = []
-    for arquivo in os.listdir(UPLOAD_DIR):
-        path = os.path.join(UPLOAD_DIR, arquivo)
-        if os.path.isfile(path):
-            arquivos.append(arquivo)
-    return jsonify(arquivos)
-
-@app.route("/arquivos/<path:path>")
-def get_arquivo(path):
-    """Faz donwload de um arquivo"""
-    return send_from_directory(UPLOAD_DIR, path, as_attachment=True)
-
-@app.route("/arquivos/<arquivo>", methods=["POST"])
-def post_arquivo(arquivo):
-    """Faz upload de um arquivo"""
-
-    if "/" in arquivo:
-        # Retorna 400 BAD REQUEST
-        abort(400, "Não é permitido subdiretórios")
-
-    with open(os.path.join(UPLOAD_DIR, arquivo), "wb") as fp:
-        fp.write(request.data)
-
-    # Retorna 201, CREATED
-    return "", 201
-
 
 @app.route("/insere_linha/<linha>", methods=["POST"])
 def adiciona_no_banco(linha):
@@ -86,9 +55,58 @@ def adiciona_no_banco(linha):
     entrada = Entrada(linha=lin, lote=lote, cartao=cartao)
     db.session.add(entrada)
     db.session.commit()
+
     msg = { 'msg' : "Inserido: " + str(entrada),
             'success' : True }
+
     return jsonify(msg), 201
+
+
+@app.route("/consulta/<cartao>", methods=["GET"])
+def consulta_cartao(cartao):
+    resposta = db.session.query(Entrada).filter_by(cartao=cartao).first()
+    if resposta:
+        msg = {
+            'id' : str(resposta.id),
+            'success' : True
+        }
+        return jsonify(msg), 200
+    else:
+        msg = {
+            'msg'     : "Cartao nao encontrado na base",
+            'success' : False
+        }
+        return jsonify(msg), 400
+
+
+@app.route("/insere_arquivo/<arquivo>", methods=["POST"])
+def insere_arquivo(arquivo):
+    """Recebe arquivo de texto"""
+
+    recebido = request.get_data()                   # pega stram io do arquivo de texto puro
+    formatado = StringIO(recebido.decode("utf-8"))  # transforma o bytes em str e str em StringIO
+                                                    # para permitir iteração
+
+    linhas = []                                     # cria array de processamento
+    for linha in formatado:                         # cria linhas em uma array retirando comentários
+        linha = linha.split("//")[0]                # e novas linhas
+        linha = linha.replace('\\n', '')
+        linhas.append(linha)
+
+    qtd_registros = int(linhas[0][46:51])
+    lote = linhas[0][37:45]
+
+    for i in range(1, qtd_registros):
+        adiciona_no_banco(linhas[i])
+
+    msg = {
+        'msg'     : "Adicionados " + str(qtd_registros) + " cartoes do " + str(lote) + ".",
+        'success' : True
+    }
+
+    return jsonify(msg), 201
+
+
 
 
 def gera_banco():
@@ -99,16 +117,20 @@ def gera_banco():
 #### LOG GERAL
 @app.after_request
 def apos_req(response):
-    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    timestamp = strftime('[%d-%b-%Y %H:%M]')
     logger.info('%s %s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status, response.data)
     return response
 
 @app.errorhandler(Exception)
 def excessoes(e):
     tb = traceback.format_exc()
-    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    timestamp = strftime('[%d-%b-%Y %H:%M]')
     logger.error('%s %s %s %s %s 5xx INTERNAL SERVER ERROR\n%s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, tb)
-    return e
+    msg = {
+        "msg" : "Ocorreu um erro",
+        "success" : False
+    }
+    return jsonify(msg), 500
 
 
 
