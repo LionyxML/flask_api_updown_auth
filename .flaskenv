@@ -1,0 +1,4 @@
+FLASK_APP=apiupdown
+FLASK_DEBUG=1
+FLASK_ENV=development
+FLASK_RUN_PORT=5050
