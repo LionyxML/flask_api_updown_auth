@@ -1,0 +1,1250 @@
+
+[2021-May-09 23:41] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 50, in msg_teste
+    insere_cartao("C1", 1234432)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 90, in insere_cartao
+    print(Entrada.query.all())
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 40, in __repr__
+    return '<Identificador: %r - %r>' % (self.username, self.cartao)
+AttributeError: 'Entrada' object has no attribute 'username'
+
+[2021-May-09 23:41] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 50, in msg_teste
+    insere_cartao("C1", 1234432)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 89, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', 1234432)]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:41] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 50, in msg_teste
+    insere_cartao("C1", 1234432)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 89, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', 1234432)]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:41] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 50, in msg_teste
+    insere_cartao("C1", 1234432)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 89, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', 1234432)]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:43] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", 1234432)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', 1234432)]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:43] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", 1234432)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', 1234432)]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:44] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:45] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:45] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:45] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:45] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:46] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:46] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:46] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:47] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:47] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:49] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:49] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:49] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:49] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+

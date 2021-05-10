@@ -1,1 +1,1103 @@
+[2021-May-09 23:49] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
 
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:49] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-09 23:49] 127.0.0.1 GET http /? 200 OK
+[2021-May-10 00:01] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-10 00:01] 127.0.0.1 GET http /? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 49, in msg_teste
+    insere_cartao("C1", "1234432")
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in insere_cartao
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (identi, cartao) VALUES (?, ?)]
+[parameters: ('C1', '1234432')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-10 00:01] 127.0.0.1 GET http /? 200 OK
+[2021-May-10 00:03] 127.0.0.1 POST http /insere? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 00:04] 127.0.0.1 POST http /insere? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 00:04] 127.0.0.1 POST http /insere/123? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 83, in adiciona_no_banco
+    res(numero)
+NameError: name 'res' is not defined
+
+[2021-May-10 00:04] 127.0.0.1 POST http /insere/123? 200 OK
+[2021-May-10 00:04] 127.0.0.1 POST http /insere/C1 123123123123123? 200 OK
+[2021-May-10 00:06] 127.0.0.1 POST http /insere/C2     4456897999999999? 200 OK
+[2021-May-10 00:08] 127.0.0.1 POST http /insere/C2     4456897999999999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 00:08] 127.0.0.1 POST http /insere/C2     4456897999999999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 00:09] 127.0.0.1 POST http /insere/C24456897999999999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 00:09] 127.0.0.1 POST http /insere_linha/C24456897999999999? 200 OK
+[2021-May-10 00:09] 127.0.0.1 POST http /insere_linha/C2 4456897999999999? 200 OK
+[2021-May-10 00:09] 127.0.0.1 POST http /insere_linha/C2      4456897999999999? 200 OK
+[2021-May-10 00:09] 127.0.0.1 POST http /insere_linha/C2             4456897999999999? 200 OK
+[2021-May-10 00:09] 127.0.0.1 POST http /insere_linha/C2             4456897999999999? 200 OK
+[2021-May-10 00:09] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:09] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:11] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 86, in adiciona_no_banco
+    return ident + "----" + cartao
+NameError: name 'ident' is not defined
+
+[2021-May-10 00:12] 127.0.0.1 GET http /? 200 OK
+[2021-May-10 00:12] 127.0.0.1 GET http /? 200 OK
+[2021-May-10 00:13] 127.0.0.1 GET http /? 200 OK
+[2021-May-10 00:13] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 85, in adiciona_no_banco
+    cartao = linha.split("%20")[1]
+IndexError: list index out of range
+
+[2021-May-10 00:13] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:15] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:15] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:15] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:16] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:16] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:17] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:17] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:17] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:17] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 86, in adiciona_no_banco
+    return coiso
+NameError: name 'coiso' is not defined
+
+[2021-May-10 00:18] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:18] 127.0.0.1 POST http /insere_linha/C2                4456897999999999? 200 OK
+[2021-May-10 00:21] 127.0.0.1 POST http /insere_linha/C2     4456897999999999? 200 OK
+[2021-May-10 00:21] 127.0.0.1 POST http /insere_linha/C2     4456897999999999? 200 OK
+[2021-May-10 00:23] 127.0.0.1 POST http /insere_linha/C2     4456897999999999? 200 OK
+[2021-May-10 00:26] 127.0.0.1 POST http /insere_linha/C2     4456897999999999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in adiciona_no_banco
+    db.commit()
+AttributeError: 'SQLAlchemy' object has no attribute 'commit'
+
+[2021-May-10 00:26] 127.0.0.1 POST http /insere_linha/C2     4456897999999999? 200 OK
+[2021-May-10 00:27] 127.0.0.1 POST http /insere_linha/C2     4456897999999999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: entrada
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 89, in adiciona_no_banco
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: entrada
+[SQL: INSERT INTO entrada (linha, lote, cartao) VALUES (?, ?, ?)]
+[parameters: ('C', '2', '4456897999999999')]
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+
+[2021-May-10 00:32] 127.0.0.1 POST http /insere_linha/C2     4456897999999999? 200 OK
+[2021-May-10 00:38] 127.0.0.1 POST http /insere_linha/C2     4456897999999999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.cartao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 89, in adiciona_no_banco
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.cartao
+[SQL: INSERT INTO entrada (linha, lote, cartao) VALUES (?, ?, ?)]
+[parameters: ('C', '2', '4456897999999999')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-10 00:38] 127.0.0.1 POST http /insere_linha/C2     44568979999999923? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.lote
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 89, in adiciona_no_banco
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.lote
+[SQL: INSERT INTO entrada (linha, lote, cartao) VALUES (?, ?, ?)]
+[parameters: ('C', '2', '44568979999999923')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-10 12:38] 127.0.0.1 GET http /? 200 OK
+[2021-May-10 12:38] 127.0.0.1 GET http /favicon.ico? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 12:40] 127.0.0.1 GET http /? 200 OK
+[2021-May-10 12:40] 127.0.0.1 GET http /favicon.ico? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 12:42] 127.0.0.1 POST http /insere_linha/C1 321231232? 400 BAD REQUEST
+[2021-May-10 12:44] 127.0.0.1 POST http /insere_linha/C1 321231232? 400 BAD REQUEST
+[2021-May-10 12:46] 127.0.0.1 POST http /insere_linha/C1 321231232? 400 BAD REQUEST
+[2021-May-10 12:50] 127.0.0.1 POST http /insere_linha/C1 321231232? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 84, in adiciona_no_banco
+    lin = " ".join(linha[0].split())
+TypeError: 'NoneType' object is not subscriptable
+
+[2021-May-10 12:50] 127.0.0.1 POST http /insere_linha/? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 12:51] 127.0.0.1 POST http /insere_linha/? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 12:51] 127.0.0.1 POST http /insere_linha/? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 12:51] 127.0.0.1 POST http /insere_linha/? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 12:52] 127.0.0.1 POST http /insere_linha/? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 12:52] 127.0.0.1 POST http /insere_linha/? 404 NOT FOUND
+[2021-May-10 12:52] 127.0.0.1 POST http /insere_linha/? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 12:52] 127.0.0.1 POST http /insere_linha/? 404 NOT FOUND
+[2021-May-10 12:52] 127.0.0.1 POST http /insere_linha/? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 12:52] 127.0.0.1 POST http /insere_linha/? 404 NOT FOUND
+[2021-May-10 12:55] 127.0.0.1 GET http /insere_linha?dado=%22C2%20123123%22 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1940, in match
+    raise MethodNotAllowed(valid_methods=list(have_match_for))
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+
+[2021-May-10 12:55] 127.0.0.1 GET http /insere_linha?dado=%22C2%20123123%22 405 METHOD NOT ALLOWED
+[2021-May-10 12:55] 127.0.0.1 GET http /favicon.ico? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 12:55] 127.0.0.1 GET http /favicon.ico? 404 NOT FOUND
+[2021-May-10 12:55] 127.0.0.1 GET http /insere_linha?dados=%22C2%20123123%22 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1940, in match
+    raise MethodNotAllowed(valid_methods=list(have_match_for))
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+
+[2021-May-10 12:55] 127.0.0.1 GET http /insere_linha?dados=%22C2%20123123%22 405 METHOD NOT ALLOWED
+[2021-May-10 12:55] 127.0.0.1 GET http /insere_linha?dados=%22C2%20123123%22 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1940, in match
+    raise MethodNotAllowed(valid_methods=list(have_match_for))
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+
+[2021-May-10 12:55] 127.0.0.1 GET http /insere_linha?dados=%22C2%20123123%22 405 METHOD NOT ALLOWED
+[2021-May-10 12:55] 127.0.0.1 GET http /insere_linha/?dados=%22C2%20123123%22 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1940, in match
+    raise MethodNotAllowed(valid_methods=list(have_match_for))
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+
+[2021-May-10 12:55] 127.0.0.1 GET http /insere_linha/?dados=%22C2%20123123%22 405 METHOD NOT ALLOWED
+[2021-May-10 12:55] 127.0.0.1 POST http /insere_linha? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1912, in raise_routing_exception
+    raise FormDataRoutingRedirect(request)
+flask.debughelpers.FormDataRoutingRedirect: b'A request was sent to this URL (http://localhost:5050/insere_linha) but a redirect was issued automatically by the routing system to "http://localhost:5050/insere_linha/".  The URL was defined with a trailing slash so Flask will automatically redirect to the URL with the trailing slash if it was accessed without one.  Make sure to directly send your POST-request to this URL since we can\'t make browsers or HTTP clients redirect with form data reliably or without user interaction.\n\nNote: this exception is only raised in debug mode'
+
+[2021-May-10 12:56] 127.0.0.1 POST http /insere_linha? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1912, in raise_routing_exception
+    raise FormDataRoutingRedirect(request)
+flask.debughelpers.FormDataRoutingRedirect: b'A request was sent to this URL (http://localhost:5050/insere_linha) but a redirect was issued automatically by the routing system to "http://localhost:5050/insere_linha/".  The URL was defined with a trailing slash so Flask will automatically redirect to the URL with the trailing slash if it was accessed without one.  Make sure to directly send your POST-request to this URL since we can\'t make browsers or HTTP clients redirect with form data reliably or without user interaction.\n\nNote: this exception is only raised in debug mode'
+
+[2021-May-10 12:56] 127.0.0.1 POST http /insere_linha? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1912, in raise_routing_exception
+    raise FormDataRoutingRedirect(request)
+flask.debughelpers.FormDataRoutingRedirect: b'A request was sent to this URL (http://localhost:5050/insere_linha) but a redirect was issued automatically by the routing system to "http://localhost:5050/insere_linha/".  The URL was defined with a trailing slash so Flask will automatically redirect to the URL with the trailing slash if it was accessed without one.  Make sure to directly send your POST-request to this URL since we can\'t make browsers or HTTP clients redirect with form data reliably or without user interaction.\n\nNote: this exception is only raised in debug mode'
+
+[2021-May-10 12:56] 127.0.0.1 POST http /insere_linha? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1912, in raise_routing_exception
+    raise FormDataRoutingRedirect(request)
+flask.debughelpers.FormDataRoutingRedirect: b'A request was sent to this URL (http://localhost:5050/insere_linha) but a redirect was issued automatically by the routing system to "http://localhost:5050/insere_linha/".  The URL was defined with a trailing slash so Flask will automatically redirect to the URL with the trailing slash if it was accessed without one.  Make sure to directly send your POST-request to this URL since we can\'t make browsers or HTTP clients redirect with form data reliably or without user interaction.\n\nNote: this exception is only raised in debug mode'
+
+[2021-May-10 12:59] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.linha
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in adiciona_no_banco
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.linha
+[SQL: INSERT INTO entrada (linha, lote, cartao) VALUES (?, ?, ?)]
+[parameters: ('C', '4', '445689799819999')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-10 12:59] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.linha
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in adiciona_no_banco
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.linha
+[SQL: INSERT INTO entrada (linha, lote, cartao) VALUES (?, ?, ?)]
+[parameters: ('C', '4', '445689799819999')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-10 12:59] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: entrada.linha
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/apiupdown/__init__.py", line 88, in adiciona_no_banco
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3262, in flush
+    self._flush(objects)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3362, in _flush
+    flush_context.execute()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
+    rec.execute(self)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    uow,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 247, in save_obj
+    insert,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 321, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1461, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: entrada.linha
+[SQL: INSERT INTO entrada (linha, lote, cartao) VALUES (?, ?, ?)]
+[parameters: ('C', '4', '445689799819999')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+
+[2021-May-10 13:01] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 201 CREATED
+[2021-May-10 13:03] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 201 CREATED
+[2021-May-10 13:04] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 201 CREATED
+[2021-May-10 13:04] 127.0.0.1 POST http /insere_linha/C4     4456897? 201 CREATED
+[2021-May-10 13:06] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 201 CREATED
+[2021-May-10 13:07] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 201 CREATED
+[2021-May-10 13:07] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 201 CREATED
+[2021-May-10 13:07] 127.0.0.1 POST http /insere_linha/? 404 NOT FOUND
+[2021-May-10 13:07] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 201 CREATED
+[2021-May-10 13:08] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 201 CREATED
+[2021-May-10 13:08] 127.0.0.1 POST http /insere_linha/C4     4456897998199999? 201 CREATED
+[2021-May-10 13:09] 127.0.0.1 GET http /insere_linha/?dados=%22C2%20123123%22 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+[2021-May-10 13:09] 127.0.0.1 GET http /insere_linha/?dados=%22C2%20123123%22 404 NOT FOUND
+[2021-May-10 13:10] 127.0.0.1 GET http /insere_linha/C42 192839182938? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1940, in match
+    raise MethodNotAllowed(valid_methods=list(have_match_for))
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+
+[2021-May-10 13:10] 127.0.0.1 GET http /insere_linha/C42 192839182938? 405 METHOD NOT ALLOWED
+[2021-May-10 13:10] 127.0.0.1 POST http /insere_linha/C42  192839182938? 201 CREATED
+[2021-May-10 13:11] 127.0.0.1 POST http /insere_linha/C42  192839182938? 201 CREATED
+[2021-May-10 13:12] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:13] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:14] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:14] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:14] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:14] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:14] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:15] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:15] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:15] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:16] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED
+[2021-May-10 13:20] 127.0.0.1 POST http /insere_linha/C42  192839182? 201 CREATED b'{\n  "msg": "Inserido: \'C\'-\'42 1\'-\'2839182\'", \n  "success": true\n}\n'
