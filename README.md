@@ -64,7 +64,7 @@ utilizar o método GET na URL:
 localhost:5050/consulta/<numero>
 ```
 
-Onde <numero> é o número do cartão.
+Onde \<numero\> é o número do cartão.
 
 Exemplo:
 ```
@@ -97,7 +97,7 @@ Enviar o arquivo .txt através do método POST na URL:
 ```
 http://localhost:5050/insere_arquivo/<arquivo>
 ```
-Onde <arquivo> é o nome do arquivo para upload.
+Onde \<arquivo\> é o nome do arquivo para upload.
 
 Exemplo:
 ```
