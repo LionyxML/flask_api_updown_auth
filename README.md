@@ -191,10 +191,10 @@ Contagem máxima de 10Mb por arquivo, mantendo o limite de 3 arquivos de backup.
 ## TODOs
 O código foi elaborado para ser limpo e de fácil interpretação.
 
-Certamente, algumas melhorias poderiam ser realizadas com tempo útil. No código
-estão algumas tags TODO com comentários.
+Certamente, algumas melhorias poderiam ser realizadas com tempo útil. O código
+possui tags TODO com comentários para esses casos.
 
-Para uma próxima versão, trataria os seguintes pontos:
+Em uma próxima versão, trataria os seguintes pontos:
 - Melhoria no gerenciamento das mensagens de erro e log
 - Separação do arquivo .py seguindo modelo MVC
 - Criação de uma Client básico
