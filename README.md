@@ -186,14 +186,15 @@ db.create_all()
 ## Logs
 Todas as requests e responses são logadas no arquivo app.log em apiupdown/api.log
 
-Contagem máxima de 10Mb por arquivo, mantendo o limite de 3 arquivos de histórico.
+Contagem máxima de 10Mb por arquivo, mantendo o limite de 3 arquivos de backup.
 
 ## TODOs
-Tentei deixar a aplicação bem limpa e fácil de ler. Contudo, algumas melhorias
-poderia ser feitas com tempo hábil e estão marcadas no código com a tag TODO.
+O código foi elaborado para ser limpo e de fácil interpretação.
 
-Das idéias possíveis de aplicar em uma melhoria, posso citar:
+Certamente, algumas melhorias poderiam ser realizadas com tempo útil. No código
+estão algumas tags TODO com comentários.
 
+Para uma próxima versão, trataria os seguintes pontos:
 - Melhoria no gerenciamento das mensagens de erro e log
 - Separação do arquivo .py seguindo modelo MVC
 - Criação de uma Client básico
