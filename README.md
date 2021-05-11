@@ -1,5 +1,12 @@
 # flask_api_updown_auth
 
+Uma api escrita em Python/Flask para o Desafio Hyperativa.
+
+Insere cartões individualmente ou passados por um arquivo de texto, recuperando
+o id de tabela quando solicitada busca por número de cartão.
+
+Utiliza SQLAlchemy para comunicação com o banco de dados (SQLite nessa versão) e
+JWT para autenticação.
 
 ## Instalação
 Crie um clone, baixe ou copie esse repositório.
@@ -20,6 +27,54 @@ no arquivo .flaskenv
 
 
 ## Utilização
+### Autenticação
+Para obter um token, enviar um POST com corpo JSON para a url:
+```
+localhost:5050/auth
+```
+
+Com o conteúdo:
+```
+{
+	"username" : "admin",
+	"password" : "admin"
+}
+```
+
+Os usuários cadastrados no banco são: admin e user, as senhas são admin e user
+respectivamente.
+
+No caso de insucesso de autenticação, o sistema retornará a mensagem:
+```
+{
+    "description": "Invalid credentials",
+    "error": "Bad Request",
+    "status_code": 401
+}
+```
+
+No caso de sucesso, um token será retornado, como no exemplo:
+```
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjA2OTIyNDgsImlhdCI6MTYyMDY5MTk0OCwibmJmIjoxNjIwNjkxOTQ4LCJpZGVudGl0eSI6MX0.SiUhq4P939Wlai8xZ7IYgiuE6tdJ322_dMHSAvEuoto"
+}
+```
+
+Para todas as requisições ao sistema, utilizar no cabeçalho (HEADER) a chave
+(Key) chamada "Authorization" com o valor (Value) "JWT \<token\>"
+
+Onde \<token\> é o access_token retornado no passo anterior.
+
+Não utilizar um token ou utilizar um token inválido, resulta na mensagem:
+```
+{
+    "description": "Invalid crypto padding",
+    "error": "Invalid token",
+    "status_code": 401
+}
+```
+
+
 ### Retorno
 As mensagens de retorno da API estão em formato JSON e seguem o padrão:
 ```

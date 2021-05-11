@@ -991,3 +991,96 @@ werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not 
 
 [10-May-2021 20:02] 127.0.0.1 GET http /insere_linha/C2     445689799999999? 500 INTERNAL SERVER ERROR b'{\n  "msg": "Ocorreu um erro", \n  "success": false\n}\n'
 [10-May-2021 20:13] 127.0.0.1 POST http /insere_arquivo/arquivo.txt? 201 CREATED b'{\n  "msg": "Adicionados 10 cartoes do LOTE0001.", \n  "success": true\n}\n'
+[10-May-2021 20:58] 127.0.0.1 POST http /auth? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask_jwt/__init__.py", line 115, in _default_auth_request_handler
+    username = data.get(current_app.config.get('JWT_AUTH_USERNAME_KEY'), None)
+AttributeError: 'NoneType' object has no attribute 'get'
+
+[10-May-2021 20:58] 127.0.0.1 POST http /auth? 500 INTERNAL SERVER ERROR b'{\n  "msg": "Ocorreu um erro", \n  "success": false\n}\n'
+[10-May-2021 20:58] 127.0.0.1 POST http /auth? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask_jwt/__init__.py", line 115, in _default_auth_request_handler
+    username = data.get(current_app.config.get('JWT_AUTH_USERNAME_KEY'), None)
+AttributeError: 'NoneType' object has no attribute 'get'
+
+[10-May-2021 20:58] 127.0.0.1 POST http /auth? 500 INTERNAL SERVER ERROR b'{\n  "msg": "Ocorreu um erro", \n  "success": false\n}\n'
+[10-May-2021 20:59] 127.0.0.1 POST http /auth? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/wrappers/json.py", line 119, in get_json
+    rv = self.json_module.loads(data)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/json/__init__.py", line 253, in loads
+    return _json.loads(s, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 361, in loads
+    return cls(**kw).decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 2 column 2 (char 3)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask_jwt/__init__.py", line 114, in _default_auth_request_handler
+    data = request.get_json()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/wrappers/json.py", line 128, in get_json
+    rv = self.on_json_loading_failed(e)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/wrappers.py", line 25, in on_json_loading_failed
+    raise BadRequest("Failed to decode JSON object: {0}".format(e))
+werkzeug.exceptions.BadRequest: 400 Bad Request: Failed to decode JSON object: Expecting property name enclosed in double quotes: line 2 column 2 (char 3)
+
+[10-May-2021 20:59] 127.0.0.1 POST http /auth? 500 INTERNAL SERVER ERROR b'{\n  "msg": "Ocorreu um erro", \n  "success": false\n}\n'
+[10-May-2021 20:59] 127.0.0.1 POST http /auth? 5xx INTERNAL SERVER ERROR
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/wrappers/json.py", line 119, in get_json
+    rv = self.json_module.loads(data)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/json/__init__.py", line 253, in loads
+    return _json.loads(s, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 361, in loads
+    return cls(**kw).decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 2 column 2 (char 3)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask_jwt/__init__.py", line 114, in _default_auth_request_handler
+    data = request.get_json()
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/werkzeug/wrappers/json.py", line 128, in get_json
+    rv = self.on_json_loading_failed(e)
+  File "/Users/rmj/webdev/BackEnd/flask_api_updown_auth/venv/lib/python3.7/site-packages/flask/wrappers.py", line 25, in on_json_loading_failed
+    raise BadRequest("Failed to decode JSON object: {0}".format(e))
+werkzeug.exceptions.BadRequest: 400 Bad Request: Failed to decode JSON object: Expecting property name enclosed in double quotes: line 2 column 2 (char 3)
+
+[10-May-2021 20:59] 127.0.0.1 POST http /auth? 500 INTERNAL SERVER ERROR b'{\n  "msg": "Ocorreu um erro", \n  "success": false\n}\n'
+[10-May-2021 21:00] 127.0.0.1 POST http /auth? 200 OK b'{\n  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjA2OTE1MjAsImlhdCI6MTYyMDY5MTIyMCwibmJmIjoxNjIwNjkxMjIwLCJpZGVudGl0eSI6MX0.FmNUWGUbZB1fZbkFYLqV9aPCkLasQC3Aut4nRyyHUZc"\n}\n'
+[10-May-2021 21:12] 127.0.0.1 POST http /auth? 200 OK b'{\n  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjA2OTIyNDgsImlhdCI6MTYyMDY5MTk0OCwibmJmIjoxNjIwNjkxOTQ4LCJpZGVudGl0eSI6MX0.SiUhq4P939Wlai8xZ7IYgiuE6tdJ322_dMHSAvEuoto"\n}\n'
+[10-May-2021 21:23] 127.0.0.1 GET http /consulta/44568979999999990? 401 UNAUTHORIZED b'{\n  "description": "Unsupported authorization type", \n  "error": "Invalid JWT header", \n  "status_code": 401\n}\n'
+[10-May-2021 21:23] 127.0.0.1 GET http /consulta/44568979999999990? 401 UNAUTHORIZED b'{\n  "description": "Unsupported authorization type", \n  "error": "Invalid JWT header", \n  "status_code": 401\n}\n'
+[10-May-2021 21:26] 127.0.0.1 GET http /consulta/44568979999999990? 401 UNAUTHORIZED b'{\n  "description": "Unsupported authorization type", \n  "error": "Invalid JWT header", \n  "status_code": 401\n}\n'
+[10-May-2021 21:27] 127.0.0.1 POST http /auth? 200 OK b'{\n  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjA2OTMxNTksImlhdCI6MTYyMDY5Mjg1OSwibmJmIjoxNjIwNjkyODU5LCJpZGVudGl0eSI6MX0.0hC_WeyqF-c23a3uS8fsOmgcEiI2W-l4INLX5ORBmco"\n}\n'
+[10-May-2021 21:27] 127.0.0.1 GET http /consulta/44568979999999990? 401 UNAUTHORIZED b'{\n  "description": "Unsupported authorization type", \n  "error": "Invalid JWT header", \n  "status_code": 401\n}\n'
+[10-May-2021 21:28] 127.0.0.1 GET http /consulta/44568979999999990? 400 BAD REQUEST b'{\n  "msg": "Cartao nao encontrado na base", \n  "success": false\n}\n'
+[10-May-2021 21:44] 127.0.0.1 GET http /consulta/44568979999999990? 401 UNAUTHORIZED b'{\n  "description": "Invalid crypto padding", \n  "error": "Invalid token", \n  "status_code": 401\n}\n'
+[10-May-2021 21:45] 127.0.0.1 POST http /auth? 200 OK b'{\n  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjA2OTQyMzEsImlhdCI6MTYyMDY5MzkzMSwibmJmIjoxNjIwNjkzOTMxLCJpZGVudGl0eSI6Mn0.AehSVCvGnGvywJObnSXYem3Pbi98q6cekRId1fNn9pA"\n}\n'
+[10-May-2021 21:45] 127.0.0.1 POST http /auth? 401 UNAUTHORIZED b'{\n  "description": "Invalid credentials", \n  "error": "Bad Request", \n  "status_code": 401\n}\n'

@@ -6,6 +6,9 @@ from time import strftime
 import traceback
 from flask_sqlalchemy import SQLAlchemy
 from io import StringIO
+from flask_jwt import JWT, jwt_required, current_identity
+from werkzeug.security import safe_str_cmp
+
 
 
 ##### Setup de diretórios e variáveis globias
@@ -25,10 +28,11 @@ logger.addHandler(handler)
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = DB
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'senha-super-secreta'    # TODO passar para var de ambiente
 db = SQLAlchemy(app)
 
 
-##### Model da tabela do banco
+##### Models para o banco de dados
 class Entrada(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     linha = db.Column(db.String(80), unique=False, nullable=False)
@@ -37,6 +41,28 @@ class Entrada(db.Model):
 
     def __repr__(self):
         return "%r-%r-%r" %(self.linha, self.lote, self.cartao)
+
+class User(object):
+    def __init__(self, id, username, password):
+        self.id = id
+        self.username = username
+        self.password = password
+
+    def __str__(self):
+        return "User(id='%s')" % self.id
+
+
+# TODO implementar hash nas senhas
+users = [
+    User(1, 'admin', 'admin'),
+    User(2, 'user', 'user'),
+]
+
+username_table = {u.username: u for u in users}
+userid_table = {u.id: u for u in users}
+
+username_table = {u.username: u for u in users}
+userid_table = {u.id: u for u in users}
 
 
 
@@ -48,6 +74,7 @@ def msg_teste():
 
 
 @app.route("/insere_linha/<linha>", methods=["POST"])
+@jwt_required()
 def adiciona_no_banco(linha):
     lin = " ".join(linha[0].split())
     lote = " ".join(linha[1:6].split())
@@ -56,30 +83,32 @@ def adiciona_no_banco(linha):
     db.session.add(entrada)
     db.session.commit()
 
-    msg = { 'msg' : "Inserido: " + str(entrada),
-            'success' : True }
+    msg = { "msg" : "Inserido: " + str(entrada),
+            "success" : True }
 
     return jsonify(msg), 201
 
 
 @app.route("/consulta/<cartao>", methods=["GET"])
+@jwt_required()
 def consulta_cartao(cartao):
     resposta = db.session.query(Entrada).filter_by(cartao=cartao).first()
     if resposta:
         msg = {
-            'id' : str(resposta.id),
-            'success' : True
+            "id" : str(resposta.id),
+            "success" : True
         }
         return jsonify(msg), 200
     else:
         msg = {
-            'msg'     : "Cartao nao encontrado na base",
-            'success' : False
+            "msg"     : "Cartao nao encontrado na base",
+            "success" : False
         }
         return jsonify(msg), 400
 
 
 @app.route("/insere_arquivo/<arquivo>", methods=["POST"])
+@jwt_required()
 def insere_arquivo(arquivo):
     """Recebe arquivo de texto"""
 
@@ -100,17 +129,12 @@ def insere_arquivo(arquivo):
         adiciona_no_banco(linhas[i])
 
     msg = {
-        'msg'     : "Adicionados " + str(qtd_registros) + " cartoes do " + str(lote) + ".",
-        'success' : True
+        "msg"     : "Adicionados " + str(qtd_registros) + " cartoes do " + str(lote) + ".",
+        "success" : True
     }
 
     return jsonify(msg), 201
 
-
-
-
-def gera_banco():
-    db.create_all()
 
 
 
@@ -132,6 +156,19 @@ def excessoes(e):
     }
     return jsonify(msg), 500
 
+
+
+# Configuração da autorização jwt
+def authenticate(username, password):
+    user = username_table.get(username, None)
+    if user and safe_str_cmp(user.password.encode('utf-8'), password.encode('utf-8')):
+        return user
+
+def identity(payload):
+    user_id = payload['identity']
+    return userid_table.get(user_id, None)
+
+jwt = JWT(app, authenticate, identity)
 
 
 
