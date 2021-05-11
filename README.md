@@ -1,15 +1,18 @@
 # flask_api_updown_auth
 
-Uma api escrita em Python/Flask para o Desafio Hyperativa.
+Uma API escrita em Python/Flask para o Desafio Hyperativa.
 
-Insere cartões individualmente ou passados por um arquivo de texto, recuperando
+Insere cartões individualmente ou enviados por um arquivo de texto, recuperando
 o id de tabela quando solicitada busca por número de cartão.
 
 Utiliza SQLAlchemy para comunicação com o banco de dados (SQLite nessa versão) e
 JWT para autenticação.
 
 ## Instalação
-Crie um clone, baixe ou copie esse repositório.
+Crie um clone, baixe ou copie esse repositório, exemplo:
+```
+git clone https://github.com/LionyxML/flask_api_updown_auth.git
+```
 
 Em seguida instale as dependências com:
 ```
@@ -166,3 +169,37 @@ Retorna:
     "success": true
 }
 ```
+
+## Reset
+Para reiniciar a aplicação em seu estado inicial, realizar a seguinte sequência:
+- Parar o servidor
+- Deletar o arquivo db.sqlite em apiupdown/db/
+- Executar o shell com ```flask shell```
+- Dentro do shell rodar os comandos:
+```
+from apiupdown import *
+db.create_all()
+```
+- Sair do shell
+- Reiniciar o servidor
+
+## Logs
+Todas as requests e responses são logadas no arquivo app.log em apiupdown/api.log
+
+Contagem máxima de 10Mb por arquivo, mantendo o limite de 3 arquivos de histórico.
+
+## TODOs
+Tentei deixar a aplicação bem limpa e fácil de ler. Contudo, algumas melhorias
+poderia ser feitas com tempo hábil e estão marcadas no código com a tag TODO.
+
+Das idéias possíveis de aplicar em uma melhoria, posso citar:
+
+- Melhoria no gerenciamento das mensagens de erro e log
+- Separação do arquivo .py seguindo modelo MVC
+- Criação de uma Client básico
+- Hash de senhas
+- Métodos de criação de novo usuário
+- Limite de tempo para o token
+- Registro do usuário logado nas operações do log
+- Regra para validar formato/tamanho dos números do cartão
+- Regra para validar o que acontece com números de cartão duplicados

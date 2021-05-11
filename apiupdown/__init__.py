@@ -10,7 +10,6 @@ from flask_jwt import JWT, jwt_required, current_identity
 from werkzeug.security import safe_str_cmp
 
 
-
 ##### Setup de diretórios e variáveis globias
 DB = "sqlite:///db/db.sqlite"
 LOG_ARQUIVO = "apiupdown/log/app.log"
@@ -19,16 +18,16 @@ LOG_BACKUP = 3
 
 
 ##### Setup do Logger
-logger = logging.getLogger('tdm')
+logger = logging.getLogger("tdm")
 handler = RotatingFileHandler(LOG_ARQUIVO, maxBytes=LOG_TAMANHO, backupCount=LOG_BACKUP)
 logger.setLevel(logging.INFO)
 logger.addHandler(handler)
 
 ##### Setup da aplicação
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = DB
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'senha-super-secreta'    # TODO passar para var de ambiente
+app.config["SQLALCHEMY_DATABASE_URI"] = DB
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SECRET_KEY"] = "senha-super-secreta"  # TODO passar para var de ambiente
 db = SQLAlchemy(app)
 
 
@@ -40,7 +39,8 @@ class Entrada(db.Model):
     cartao = db.Column(db.String(120), unique=False, nullable=False)
 
     def __repr__(self):
-        return "%r-%r-%r" %(self.linha, self.lote, self.cartao)
+        return "%r-%r-%r" % (self.linha, self.lote, self.cartao)
+
 
 class User(object):
     def __init__(self, id, username, password):
@@ -53,9 +53,10 @@ class User(object):
 
 
 # TODO implementar hash nas senhas
+# SETUP dos usuários teste do banco
 users = [
-    User(1, 'admin', 'admin'),
-    User(2, 'user', 'user'),
+    User(1, "admin", "admin"),
+    User(2, "user", "user"),
 ]
 
 username_table = {u.username: u for u in users}
@@ -65,14 +66,7 @@ username_table = {u.username: u for u in users}
 userid_table = {u.id: u for u in users}
 
 
-
-##### Rotas
-
-@app.route('/')
-def msg_teste():
-    return "Servindo API..."
-
-
+##### ROTAS
 @app.route("/insere_linha/<linha>", methods=["POST"])
 @jwt_required()
 def adiciona_no_banco(linha):
@@ -83,8 +77,7 @@ def adiciona_no_banco(linha):
     db.session.add(entrada)
     db.session.commit()
 
-    msg = { "msg" : "Inserido: " + str(entrada),
-            "success" : True }
+    msg = {"msg": "Inserido: " + str(entrada), "success": True}
 
     return jsonify(msg), 201
 
@@ -94,16 +87,10 @@ def adiciona_no_banco(linha):
 def consulta_cartao(cartao):
     resposta = db.session.query(Entrada).filter_by(cartao=cartao).first()
     if resposta:
-        msg = {
-            "id" : str(resposta.id),
-            "success" : True
-        }
+        msg = {"id": str(resposta.id), "success": True}
         return jsonify(msg), 200
     else:
-        msg = {
-            "msg"     : "Cartao nao encontrado na base",
-            "success" : False
-        }
+        msg = {"msg": "Cartao nao encontrado na base", "success": False}
         return jsonify(msg), 400
 
 
@@ -112,14 +99,16 @@ def consulta_cartao(cartao):
 def insere_arquivo(arquivo):
     """Recebe arquivo de texto"""
 
-    recebido = request.get_data()                   # pega stram io do arquivo de texto puro
-    formatado = StringIO(recebido.decode("utf-8"))  # transforma o bytes em str e str em StringIO
-                                                    # para permitir iteração
+    recebido = request.get_data()  # pega stream io do arquivo de texto puro
+    formatado = StringIO(          # transforma o bytes em str e str em StringIO
+        recebido.decode("utf-8")   # para permitir iteração
+    )
 
-    linhas = []                                     # cria array de processamento
-    for linha in formatado:                         # cria linhas em uma array retirando comentários
-        linha = linha.split("//")[0]                # e novas linhas
-        linha = linha.replace('\\n', '')
+
+    linhas = []                       # cria array de processamento
+    for linha in formatado:           # cria linhas em uma array retirando
+        linha = linha.split("//")[0]  # comentários e novas linhas
+        linha = linha.replace("\\n", "")
         linhas.append(linha)
 
     qtd_registros = int(linhas[0][46:51])
@@ -129,49 +118,61 @@ def insere_arquivo(arquivo):
         adiciona_no_banco(linhas[i])
 
     msg = {
-        "msg"     : "Adicionados " + str(qtd_registros) + " cartoes do " + str(lote) + ".",
-        "success" : True
+        "msg": "Adicionados " + str(qtd_registros) + " cartoes do " + str(lote) + ".",
+        "success": True,
     }
 
     return jsonify(msg), 201
 
 
-
-
 #### LOG GERAL
 @app.after_request
 def apos_req(response):
-    timestamp = strftime('[%d-%b-%Y %H:%M]')
-    logger.info('%s %s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status, response.data)
+    timestamp = strftime("[%d-%b-%Y %H:%M]")
+    logger.info(
+        "%s %s %s %s %s %s %s",
+        timestamp,
+        request.remote_addr,
+        request.method,
+        request.scheme,
+        request.full_path,
+        response.status,
+        response.data,
+    )
     return response
+
 
 @app.errorhandler(Exception)
 def excessoes(e):
     tb = traceback.format_exc()
-    timestamp = strftime('[%d-%b-%Y %H:%M]')
-    logger.error('%s %s %s %s %s 5xx INTERNAL SERVER ERROR\n%s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, tb)
-    msg = {
-        "msg" : "Ocorreu um erro",
-        "success" : False
-    }
+    timestamp = strftime("[%d-%b-%Y %H:%M]")
+    logger.error(
+        "%s %s %s %s %s 500 INTERNAL SERVER ERROR\n",
+        timestamp,
+        request.remote_addr,
+        request.method,
+        request.scheme,
+        request.full_path,
+    )
+    msg = {"msg": "Ocorreu um erro", "success": False}
     return jsonify(msg), 500
 
 
-
-# Configuração da autorização jwt
+#### CONFIGURAÇÃO DA AUTH POR JWT
 def authenticate(username, password):
     user = username_table.get(username, None)
-    if user and safe_str_cmp(user.password.encode('utf-8'), password.encode('utf-8')):
+    if user and safe_str_cmp(user.password.encode("utf-8"), password.encode("utf-8")):
         return user
 
+
 def identity(payload):
-    user_id = payload['identity']
+    user_id = payload["identity"]
     return userid_table.get(user_id, None)
+
 
 jwt = JWT(app, authenticate, identity)
 
 
-
-# Roda APP
+#### INICIA O APP
 if __name__ == "__main__":
     app.run()
