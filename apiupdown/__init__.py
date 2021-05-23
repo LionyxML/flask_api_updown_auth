@@ -33,6 +33,7 @@ db = SQLAlchemy(app)
 
 ##### Models para o banco de dados
 class Entrada(db.Model):
+    """ Modelo de entrada de dado usado no banco """
     id = db.Column(db.Integer, primary_key=True)
     linha = db.Column(db.String(80), unique=False, nullable=False)
     lote = db.Column(db.String(80), unique=False, nullable=False)
@@ -43,6 +44,7 @@ class Entrada(db.Model):
 
 
 class User(object):
+    """ Modelo de usuário usado no banco """
     def __init__(self, id, username, password):
         self.id = id
         self.username = username
@@ -70,6 +72,7 @@ userid_table = {u.id: u for u in users}
 @app.route("/insere_linha/<linha>", methods=["POST"])
 @jwt_required()
 def adiciona_no_banco(linha):
+    """ Adiciona uma nova linha do arquivo de texto ou digitada ao banco """
     lin = " ".join(linha[0].split())
     lote = " ".join(linha[1:6].split())
     cartao = " ".join(linha[7:26].split())
@@ -85,6 +88,7 @@ def adiciona_no_banco(linha):
 @app.route("/consulta/<cartao>", methods=["GET"])
 @jwt_required()
 def consulta_cartao(cartao):
+    """ Realiza a consulta do cartão fornecido """
     resposta = db.session.query(Entrada).filter_by(cartao=cartao).first()
     if resposta:
         msg = {"id": str(resposta.id), "success": True}
@@ -128,6 +132,7 @@ def insere_arquivo(arquivo):
 #### LOG GERAL
 @app.after_request
 def apos_req(response):
+    """ Após cada request, executa o log da ação e resposta """
     timestamp = strftime("[%d-%b-%Y %H:%M]")
     logger.info(
         "%s %s %s %s %s %s %s",
@@ -144,6 +149,7 @@ def apos_req(response):
 
 @app.errorhandler(Exception)
 def excessoes(e):
+    """ Gerencia o que acontece com as excessões globais """
     tb = traceback.format_exc()
     timestamp = strftime("[%d-%b-%Y %H:%M]")
     logger.error(
@@ -160,12 +166,14 @@ def excessoes(e):
 
 #### CONFIGURAÇÃO DA AUTH POR JWT
 def authenticate(username, password):
+    """ Retorna usuário caso a password do banco e a fornecida sejam a mesma """
     user = username_table.get(username, None)
     if user and safe_str_cmp(user.password.encode("utf-8"), password.encode("utf-8")):
         return user
 
 
 def identity(payload):
+    """ Retorna o ID de usuário """
     user_id = payload["identity"]
     return userid_table.get(user_id, None)
 
